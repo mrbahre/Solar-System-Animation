@@ -1,0 +1,29 @@
+body{
+  background-color: #000;
+  height: 100vh;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: sans-serif;
+}
+h1{
+   font-size: 60px;
+   color: white;
+   position: relative;
+   transition: color 0.3s;
+}
+h1::after{
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  right: 0;
+  color: transparent;
+  background: linear-gradient(90deg, red, orange, yellow, lime, cyan, blue, violet);
+  -webkit-background-clip: text;
+  clip-path: circle(0% at var(--x,50%) var(--y,50%));
+  transition: clip-path 0.3s ease-out;
+}
+h1:hover::after{
+  clip-path: circle(150% at var(--x,50%) var(--y,50%));
+}
